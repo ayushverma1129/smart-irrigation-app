@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
     switch(authStatus){
       case AuthStatus.notSignedIn:
         return new Scaffold(
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.green[200],
           body: new Stack(
             fit: StackFit.expand,
             children: <Widget>[
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
               new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new Text("Smart Irrigation System",textAlign: TextAlign.center,style:new TextStyle(color: Colors.white,fontFamily:'Pacifico',fontSize: 30.0)
+                  new Text("Smart Irrigation System",textAlign: TextAlign.center,style:new TextStyle(color: Colors.black,fontFamily:'Pacifico',fontSize: 30.0)
                   ),
                   new Form(child: new Theme(data: new ThemeData(brightness: Brightness.dark,primarySwatch:Colors.teal,
                       inputDecorationTheme: new InputDecorationTheme(
@@ -134,6 +134,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             new TextFormField(
                               decoration: new InputDecoration(
                                 labelText: "Enter Username",
+                                labelStyle: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold
+
+                              ),
                               ),
                               keyboardType: TextInputType.text,
                               controller: usernameController,
@@ -142,20 +147,28 @@ class _MyHomePageState extends State<MyHomePage> {
                               obscureText: true,
                               decoration: new InputDecoration(
                                 labelText: "Enter Password",
+                                labelStyle: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold
+
+                              ),
                               ),
                               keyboardType: TextInputType.text,
                               controller: passwordController,
                             ),
                             new Padding(
-                                padding: const EdgeInsets.only(top: 40.0)
+                                padding: const EdgeInsets.only(top: 80.0)
                             ),
                             new MaterialButton(
                               height: 50.0,
                               minWidth: 150.0,
                               color: Colors.teal,
+                              shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                              
                               splashColor: Colors.teal,
                               textColor: Colors.white,
-                              child: new Text("Login"),
+                              child: new Text("Login",style: TextStyle(fontWeight:FontWeight.bold ),),
                               onPressed: () {
                                 _login(usernameController.text, passwordController.text);
                               },
@@ -165,9 +178,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 50.0,
                               minWidth: 150.0,
                               color: Colors.teal,
+                              shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
                               splashColor: Colors.teal,
                               textColor: Colors.white,
-                              child: new Text("Sign Up"),
+                              child: new Text("Sign Up",
+                              style: TextStyle(fontWeight:FontWeight.bold ),),
                               onPressed: () {
                                 _navigateSignUp();
                               },
